@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use mysql as the database for Active Record
@@ -34,9 +33,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # My gems
 gem 'annotate', '~> 2.6.6'
+gem 'capybara'
 gem 'devise'
+gem 'factory_girl_rails'
 
 group :development do
+  gem 'guard'
+  gem 'guard-rspec', require: false
   gem 'quiet_assets'
 end
 
@@ -49,4 +52,7 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Use Rspec for tests
+  gem 'rspec-rails', '~> 3.0'
 end
