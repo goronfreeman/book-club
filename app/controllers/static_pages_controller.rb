@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
   def resources
   end
 
-  def calendar
+  def events
   end
 
   def code_review
