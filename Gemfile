@@ -38,12 +38,17 @@ gem 'annotate', '~> 2.6.6'
 gem 'capybara'
 gem 'devise'
 gem 'factory_girl_rails'
-gem 'bourbon'
+gem "octokit", "~> 3.0"
 
 group :development do
   gem 'guard'
   gem 'guard-rspec', require: false
   gem 'quiet_assets'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
