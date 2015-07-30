@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :events
   validates :user_name, presence: true, length: { minimum: 4, maximum: 16 }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -22,4 +23,5 @@ end
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  admin                  :boolean          default(FALSE)
+#  user_name              :string(255)
 #

@@ -1,0 +1,7 @@
+<img src="http://placehold.it/700x500">
+
+<%- @events.each do |event| %>
+  <h2><%= link_to event.title, event_path(event) %></h2>
+  <h4><%= event.presenter %> <%= event.date %></h4>
+  <p><%= event.content %></p>
+<% end %>
