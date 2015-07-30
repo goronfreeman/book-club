@@ -3,5 +3,5 @@
 <%- @events.each do |event| %>
   <h2><%= link_to event.title, event_path(event) %></h2>
   <h4><%= event.presenter %> <%= event.date %></h4>
-  <p><%= event.content %></p>
+  <p><%= truncate(event.content, length: 50, separator: ' ') %></p>
 <% end %>
