@@ -4,7 +4,7 @@ feature 'Editing events' do
   background do
     @user = create :user
     @admin = create(:user, id: 2, email: 'mario@nintendo.com', user_name: 'supermario', admin: true)
-    @event = create(:event, id: 1, title: 'Jumping 101', content: 'Oh yeah! Mario time.', presenter: 'Mario', date: '2015-07-31', user_id: 2)
+    @event = create(:event, id: 1, title: 'Jumping 101', content: 'Oh yeah! Mario time.', presenter: 'Mario', date: '2014-07-31', user_id: 2)
   end
 
   scenario 'admin can edit an event' do
@@ -46,6 +46,20 @@ feature 'Editing events' do
 
   scenario 'regular user cannot edit an event via the url' do
     sign_in_with(@user)
+    visit edit_event_path(@event)
+
+    expect(page).to have_content("Hey! Don't do dat!")
+    expect(page.current_path).to eq(events_path)
+  end
+
+  scenario 'logged out user cannot edit an event via the index' do
+    visit events_path
+
+    find(:xpath, "//a[contains(@href, 'events/1')]").click
+    expect(page).to_not have_content('Edit Event')
+  end
+
+  scenario 'logged out user cannot edit an event via the url' do
     visit edit_event_path(@event)
 
     expect(page).to have_content("Hey! Don't do dat!")

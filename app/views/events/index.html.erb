@@ -23,6 +23,6 @@
     <p><%= truncate(event.content, length: 50, separator: ' ') %></p>
   </article>
 <% end %>
-<%- if  current_user.nil? || current_user.admin?  %>
+<%- if  current_user && current_user.admin?  %>
   <%= link_to 'Add Event', new_event_path, class: 'btn btn-default' %>
 <% end %>
