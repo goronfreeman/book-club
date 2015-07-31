@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :verify_is_admin, except: [:index, :show]
   before_action :retrieve_event, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -52,5 +53,9 @@ class EventsController < ApplicationController
 
   def retrieve_event
     @event = Event.find(params[:id])
+  end
+
+  def verify_is_admin
+    (!user_signed_in?) ? redirect_to(events_path) : (redirect_to(events_path) unless current_user.admin?)
   end
 end
