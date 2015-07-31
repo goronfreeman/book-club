@@ -38,7 +38,10 @@ gem 'annotate', '~> 2.6.6'
 gem 'capybara'
 gem 'devise'
 gem 'factory_girl_rails'
-gem "octokit", "~> 3.0"
+gem 'octokit', '~> 3.0'
+gem 'haml'
+gem 'haml-rails', '~> 0.9'
+
 
 group :development do
   gem 'guard'

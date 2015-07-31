@@ -1,0 +1,20 @@
+#articles
+  %h2#month
+    = link_to '<', date: @date.prev_month
+    = @date.strftime("%B %Y")
+    = link_to '>', date: @date.next_month
+  = calendar @date do |date|
+    = date.day
+    - if @events_by_date[date]
+      %ul
+        - @events_by_date[date].each do |event|
+          %li= link_to event.title, event
+- @events.each do |event|
+  %article
+    %h2= link_to event.title, event_path(event)
+    %h4
+      = event.presenter
+      = event.date.strftime("%m/%d/%Y")
+    %p= truncate(event.content, length: 50, separator: ' ')
+- if current_user && current_user.admin?
+  = link_to 'Add Event', new_event_path, class: 'btn btn-default'

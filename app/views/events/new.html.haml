@@ -1,0 +1,19 @@
+= form_for @event do |f|
+  .field
+    = f.label :title
+    %br/
+    = f.text_field :title, autofocus: true, placeholder: 'Title'
+  .field
+    = f.label :date
+    %br/
+    = f.date_field :date
+  .field
+    = f.label :presenter
+    %br/
+    = f.text_field :presenter, placeholder: 'Presenter (optional)'
+  .field
+    = f.label :content
+    %br/
+    = f.text_field :content, placeholder: 'Content'
+  .actions
+    = f.submit "Create Event"
