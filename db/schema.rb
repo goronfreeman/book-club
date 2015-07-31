@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20150731010540) do
     t.string   "title",      limit: 255
     t.text     "content",    limit: 65535
     t.string   "presenter",  limit: 255
-    t.date     "date"
     t.integer  "user_id",    limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.date     "date"
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
