@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update(post_params)
+    if @event.update(event_params)
       flash[:success] = 'Your event has been updated.'
       redirect_to events_path
     else
@@ -56,6 +56,9 @@ class EventsController < ApplicationController
   end
 
   def verify_is_admin
-    (!user_signed_in?) ? redirect_to(events_path) : (redirect_to(events_path) unless current_user.admin?)
+    if !user_signed_in? || !current_user.admin?
+      redirect_to events_path
+      flash[:warning] = "Hey! Don't do dat!"
+    end
   end
 end
