@@ -16,6 +16,18 @@ feature 'User authentication' do
     expect(page).to have_content('fancyfrank')
   end
 
+  scenario 'can update account details' do
+    sign_in_with(@user)
+
+    click_link 'Edit Profile'
+    fill_in 'User name', with: 'supermario'
+    fill_in 'Current password', with: 'illbeback'
+    click_button 'Update'
+
+    expect(page).to have_content('Your account has been updated successfully.')
+    expect(page).to have_content('supermario')
+  end
+
   scenario 'can log out once logged in' do
     sign_in_with(@user)
 

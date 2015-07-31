@@ -1,5 +1,5 @@
 <h2><%= @event.title %></h2>
-<h4><%= @event.presenter %> <%= @event.date.strftime("%d/%m/%Y") %></h4>
+<h4><%= @event.presenter %> <%= @event.date.strftime("%m/%d/%Y") %></h4>
 <p><%= @event.content %></p>
 
 <%- if  current_user.nil? || current_user.admin?  %>

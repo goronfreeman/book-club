@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   validates :title, :content, :date, presence: true
 
   def upcoming?
-    # check date field vs current date
+    #
   end
 end
 

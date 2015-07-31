@@ -1,9 +1,11 @@
 class EventsController < ApplicationController
-  before_action :verify_is_admin, except: [:index, :show]
   before_action :retrieve_event, only: [:show, :edit, :update, :destroy]
+  before_action :verify_is_admin, except: [:index, :show]
 
   def index
     @events = Event.all
+    @events_by_date = @events.group_by(&:date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def new
