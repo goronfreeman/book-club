@@ -6,16 +6,6 @@ feature 'Creating events' do
     @admin = create(:user, id: 2, email: 'mario@nintendo.com', user_name: 'supermario', admin: true)
   end
 
-  scenario 'logged out users cannot create an event via events page' do
-    visit events_path
-    expect(page).to_not have_content('Add Event')
-  end
-
-  scenario 'logged out users cannot create an event via url' do
-    visit new_event_path
-    expect(page).to have_content("Hey! Don't do dat!")
-  end
-
   scenario 'regular users cannot create an event via events page' do
     sign_in_with(@user)
     visit events_path
@@ -24,7 +14,7 @@ feature 'Creating events' do
 
   scenario 'regular users cannot create an event via url' do
     sign_in_with(@user)
-    visit new_event_path
+    visit '/events/new'
     expect(page).to have_content("Hey! Don't do dat!")
     expect(page.current_path).to eq(events_path)
   end

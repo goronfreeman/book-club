@@ -1,0 +1,28 @@
+<div id="articles">
+  <h2 id="month">
+    <%= link_to '<', date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to '>', date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <%- if @events_by_date[date] %>
+      <ul>
+        <% @events_by_date[date].each do |event| %>
+          <li><%= link_to event.title, event %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+
+<%- @events.each do |event| %>
+  <article>
+    <h2><%= link_to event.title, event_path(event) %></h2>
+    <h4><%= event.presenter %> <%= event.date.strftime("%m/%d/%Y") %></h4>
+    <p><%= truncate(event.content, length: 50, separator: ' ') %></p>
+  </article>
+<% end %>
+<%- if  current_user.nil? || current_user.admin?  %>
+  <%= link_to 'Add Event', new_event_path, class: 'btn btn-default' %>
+<% end %>
