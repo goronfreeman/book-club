@@ -1,0 +1,21 @@
+<%= form_for @resource do |f| %>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description, autofocus: true, placeholder: 'Title' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.text_field :category, placeholder: 'Category' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url%><br />
+    <%= f.text_field :url, placeholder: 'URL' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update Resource" %>
+  </div>
+<% end %>

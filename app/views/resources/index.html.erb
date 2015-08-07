@@ -1,0 +1,9 @@
+<% @resources.each do |resource| %>
+  <h4><%= resource.description %></h4>
+  <p><%= resource.category %></p>
+  <%= link_to resource.url, resource.url %>
+<% end %>
+
+<% if current_user && current_user.admin? %>
+  <%= link_to 'Add Resource', new_resource_path, class: 'btn btn-default' %>
+<% end %>
