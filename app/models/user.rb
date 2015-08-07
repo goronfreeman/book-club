@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :events
+  has_many :resources
   validates :user_name, uniqueness: true, presence: true, length: { minimum: 4, maximum: 16 }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

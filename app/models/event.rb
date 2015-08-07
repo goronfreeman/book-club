@@ -1,10 +1,7 @@
 class Event < ActiveRecord::Base
+  # scope :upcoming, ->(num_events) { order('created_at DESC').limit(num_events) }
   belongs_to :user
   validates :title, :content, :date, presence: true
-
-  def upcoming?
-    #
-  end
 end
 
 # == Schema Information

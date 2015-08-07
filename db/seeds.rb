@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(email: 'test@test.com', password: 'password', password_confirmation: 'password', user_name: 'test')
-
+user = User.create(email: 'test@test.com', password: 'password', password_confirmation: 'password', user_name: 'test')
 admin = User.create(email: 'hunter.braun@gmail.com', password: 'password', password_confirmation: 'password', user_name: 'dewey', admin: true)
 
-Event.create(id: 1, title: 'Jumping 101', content: 'Oh yeah! Mario time.', presenter: 'Mario', date: '2014-07-31', user_id: admin.id)
+past_event = Event.create(title: 'Jumping 101', content: 'Oh yeah! Mario time.', presenter: 'Mario', date: '2014-07-31', user_id: admin.id)
+upcoming_event = Event.create(title: 'Ghost Busting 101', content: "Let's take a look at the Poltergust 3000.", presenter: 'Luigi', date: '2015-10-31', user_id: admin.id)
