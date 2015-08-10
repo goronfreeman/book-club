@@ -1,0 +1,83 @@
+// .container {
+//   width: 100%;
+//   padding: 0;
+//   margin: 0;
+// }
+
+.header {
+  height: 500px;
+  text-align: center;
+  color: white;
+  background-image: url(book-stack.jpg);
+  background-size: cover;
+  background-position: center;
+  display: block;
+  padding: 24px 12px;
+}
+
+.header h1 {
+  font-family: monospace;
+  font-size: 80px;
+  color: white;
+
+  @media (max-width: 650px) {
+    font-size: 40px;
+  }
+}
+
+.aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.founders {
+  background-color: #FE2A44;
+  text-align: center;
+  font-family: monospace;
+  font-size: 20px;
+  color: white;
+}
+
+.founders h2 {
+  font-size: 40px;
+}
+
+.founders h3 {
+  font-size: 30px;
+}
+
+.description {
+  background-color: rgba(0,0,0,0.6);
+  padding: 20px;
+  border: 3px solid white;
+  margin-top: 20px;
+}
+
+#bremen {
+  border-radius: 40px 40px 40px 5px;
+  // margin-left: -30px;
+}
+#hunter {
+  border-radius: 40px 40px 5px 40px;
+  // padding-top: 10px;
+  // margin-right: -30px;
+}
+
+.avatar > img {
+  border-radius: 50%;
+}
+
+.about {
+  background-color: #41932D;
+  text-align: center;
+  font-family: monospace;
+  font-size: 18px;
+  color: white;
+  padding: 10px;
+}
+
+.about a {
+  color: white;
+  text-decoration: none;
+}
